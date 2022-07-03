@@ -7,17 +7,20 @@ import Routing from './Routing';
 import Footer from './components/Footer';
 import ProductContextProvider from './context/productContext';
 import AuthContextProvider from "./context/authContext";
+import CartContextProvider from "./context/cartContext";
 
 const App  = () => {
   return (
 <AuthContextProvider>
 <ProductContextProvider>
     <BrowserRouter >
-    <Navbar/>
+  <CartContextProvider>
+  <Navbar/>
  {/* <Video /> */}
     <Routing/>
     {/* <HomePage/> */}
     <Footer />
+  </CartContextProvider>
     </BrowserRouter>
   </ProductContextProvider>
 </AuthContextProvider>

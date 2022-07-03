@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { Nav, NavDropdown } from "react-bootstrap"
 import { authContext } from '../context/authContext';
+import { cartContext } from '../context/cartContext';
+import { Badge, IconButton } from '@mui/material';
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+
 
 
 const Navbar = () => {
     const { currentUser, logOut } = useContext(authContext);
     // console.log(currentUser);
+
+    const { count, getCart } = React.useContext(cartContext);
+    React.useEffect(() => {
+        getCart();
+    }, []);
 
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
@@ -32,25 +41,33 @@ const Navbar = () => {
                     <Link to='/'>НА ГЛАВНУЮ</Link>
                 </li>
                 <li>
-                    <Link to='/pricing'>ТУРЫ И ПОХОДЫ</Link>
+                    <Link to='/products'>ТУРЫ И ПОХОДЫ</Link>
                 </li>
                 <li>
-                    <Link to='/training'>О НАС</Link>
-                </li>
-                <li>
-                    <Link to='/contact'>КОРЗИНА</Link>
+                    <Link to='/about-us'>О НАС</Link>
                 </li>
 
-                <li>
-                    <Nav>
-                        <NavDropdown title="User Name">
-                            {currentUser ? (
-                                <NavDropdown.Item>{currentUser.email}</NavDropdown.Item>) : null}
-                            {currentUser ? (
-                                <NavDropdown.Item onClick={() => { logOut() }}>LogOut</NavDropdown.Item>) : (<NavDropdown.Item > <Link to='/login'>LogIn</Link></NavDropdown.Item>)}
-                        </NavDropdown>
-                    </Nav>
-                </li>
+                <Link to='/cart'>
+                    <IconButton
+                        size="large"
+                        aria-label="show 17 new notifications"
+                        color="inherit">
+                        <Badge badgeContent={count} color="error">
+                            <AddShoppingCartIcon />
+                        </Badge>
+                    </IconButton></Link>
+
+
+
+                <Nav>
+                    <NavDropdown title="User Name">
+                        {currentUser ? (
+                            <NavDropdown.Item>{currentUser.email}</NavDropdown.Item>) : null}
+                        {currentUser ? (
+                            <NavDropdown.Item onClick={() => { logOut() }}>LogOut</NavDropdown.Item>) : (<NavDropdown.Item > <Link to='/login'>LogIn</Link></NavDropdown.Item>)}
+                    </NavDropdown>
+                </Nav>
+
 
             </ul>
 

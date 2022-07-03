@@ -51,6 +51,17 @@ const LoginForm = () => {
                     onClick={handleValues}>
                     Login
                 </Button>
+                <Typography variant="p" component="h2">
+                    Don't have an account?
+                </Typography>
+                <Typography
+                    onClick={() => navigate("/register")}
+                    variant="p"
+                    color={"primary"}
+                    style={{ cursor: "pointer" }}
+                    component="h2">
+                    Sign up
+                </Typography>
             </Box>
         </Box>
     );

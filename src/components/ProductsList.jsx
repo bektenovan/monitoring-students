@@ -4,10 +4,12 @@ import { productContext } from '../context/productContext';
 import ProductCard from '../components/ProductCart';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Filters from "../components/Filters";
+import { authContext } from "../context/authContext";
 
 
 const ProductsList = () => {
     const { getProducts, products, pages } = useContext(productContext)
+    const { isAdmin } = useContext(authContext);
     const navigate = useNavigate()
     const [searchParams, setSearchParams] = useSearchParams();
     const [search, setSearch] = useState(
@@ -52,7 +54,14 @@ const ProductsList = () => {
 
 
             <Container>
-                <Button variant="contained" color="success" style={{ marginTop: "30px" }} onClick={() => navigate("/add-product")}>Add product</Button>
+                {isAdmin ? (
+                    <Button
+                        variant="outlined"
+                        style={{ margin: "30px" }}
+                        onClick={() => navigate("/add-product")}>
+                        Add product
+                    </Button>
+                ) : null}
                 <Filters
                     search={search}
                     setSearch={setSearch}
@@ -66,7 +75,7 @@ const ProductsList = () => {
                 <Box display={"flex"} justifyContent={"center"}>
                     <Pagination
                         page={page}
-                        count={pages}
+                        count={isNaN(pages) ? 0 : pages}
                         variant="outlined"
                         shape="rounded"
                         onChange={(e, value) => setPage(value)}

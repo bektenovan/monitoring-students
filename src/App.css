@@ -52,10 +52,12 @@ a{
 
 .nav-menu {
     display: flex;
+    
 }
 
 .nav-menu li {
     padding: 0 1rem;
+    margin-top: 10px;
 }
 
 .nav-menu a {
