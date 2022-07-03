@@ -13,10 +13,10 @@ const Video = () => {
             </video>
             <div className='content'>
                 <h1>Galaxy. Travel.</h1>
-                <p>World's first civilian space travel.</p>
+                <p>Открой для себя красоту Кыргызстана</p>
                 <div>
-                    <Link to='/training' className='btn'>Training</Link>
-                    <Link to='/contact' className='btn btn-light'>Launch</Link>
+                    <Link to='/training' className='btn'>Зарегистрироваться</Link>
+                    <Link to='/contact' className='btn btn-light'>Войти</Link>
                 </div>
             </div>
         </div>

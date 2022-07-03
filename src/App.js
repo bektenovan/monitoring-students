@@ -1,22 +1,30 @@
+import React from "react";
+
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
-import Video from './components/Video';
 import Routing from './Routing';
 import Footer from './components/Footer';
-import HomePage from './components/HomePage';
+import ProductContextProvider from './context/productContext';
+import AuthContextProvider from "./context/authContext";
 
-function App() {
+const App  = () => {
   return (
-    <BrowserRouter>
- <Navbar/>
- <Video />
+<AuthContextProvider>
+<ProductContextProvider>
+    <BrowserRouter >
+    <Navbar/>
+ {/* <Video /> */}
     <Routing/>
-    <HomePage/>
+    {/* <HomePage/> */}
     <Footer />
     </BrowserRouter>
+  </ProductContextProvider>
+</AuthContextProvider>
+
 
   );
 }
-
 export default App;
+
+

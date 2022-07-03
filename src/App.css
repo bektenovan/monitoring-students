@@ -66,7 +66,11 @@ a{
 .hamburger {
     display: none;
 }
-
+@media screen and (max-width:700px) {
+    .img {
+   height: 70px;
+    }
+}
 @media screen and (max-width:1240px) {
     .hamburger {
         display: block;
@@ -258,13 +262,56 @@ a{
 .signup{
     background-color: #fff;
 }
+.image {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
 
+.herow {
+    height: 100vh;
+    width: 100%;
+    object-fit: contain;
+}
 
+.herow .content {
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    top: 40vh;
+}
 
+.herow .content h1 {
+    font-size: 4rem;
+    color: white;
+}
 
+.herow p {
+    font-size: 1.8rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+    color:white;
+}
 
+.herow .btn {
+    margin: 1rem .2rem;
+}
 
+@media screen and (max-width:640px) {
+    .content h1 {
+        font-size: 3rem;
+    }
 
+    .content p {
+        font-size: 1.4rem;
+        margin-bottom: 1.6rem;
+    }
+}
 
 
 
