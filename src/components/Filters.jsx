@@ -2,7 +2,12 @@ import React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
-import { Slider } from "@mui/material";
+import { Box, Slider } from "@mui/material";
+import TextField from '@mui/material/TextField';
+import { LocalizationProvider } from '@mui/x-date-pickers-pro';
+import { AdapterDateFns } from '@mui/x-date-pickers-pro/AdapterDateFns';
+import { StaticDateRangePicker } from '@mui/x-date-pickers-pro/StaticDateRangePicker';
+import { setDate } from "date-fns";
 const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: "100%",
@@ -42,7 +47,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         },
     },
 }));
-const Filters = ({ search, setSearch, price, setPrice }) => {
+const Filters = ({ search, setSearch, price, setPrice, data, setData }) => {
+    const [value, setValue] = React.useState([null, null]);
+
     return (
         <div>
             <Search>
@@ -67,6 +74,24 @@ const Filters = ({ search, setSearch, price, setPrice }) => {
                 step={100}
                 style={{ width: "200px", display: "flex", justifyContent: "flex-end", marginLeft: "10px", color: "green" }}
             />
+            <Box style={{ width: "650px" }}>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <StaticDateRangePicker
+                        displayStaticWrapperAs="desktop"
+                        value={data}
+                        onChange={(e, value) => {
+                            setData(value);
+                        }}
+                        renderInput={(startProps, endProps) => (
+                            <React.Fragment>
+                                <TextField {...startProps} />
+                                <Box sx={{ mx: 1 }}> to </Box>
+                                <TextField {...endProps} />
+                            </React.Fragment>
+                        )}
+                    />
+                </LocalizationProvider>
+            </Box>
         </div>
     );
 };

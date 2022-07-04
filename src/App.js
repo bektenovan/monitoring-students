@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import ProductContextProvider from './context/productContext';
 import AuthContextProvider from "./context/authContext";
 import CartContextProvider from "./context/cartContext";
+import FavoriteContextProvider from "./context/favoriteContext";
 
 const App  = () => {
   return (
@@ -15,11 +16,13 @@ const App  = () => {
 <ProductContextProvider>
     <BrowserRouter >
   <CartContextProvider>
-  <Navbar/>
+    <FavoriteContextProvider>
+    <Navbar/>
  {/* <Video /> */}
     <Routing/>
     {/* <HomePage/> */}
     <Footer />
+    </FavoriteContextProvider>
   </CartContextProvider>
     </BrowserRouter>
   </ProductContextProvider>

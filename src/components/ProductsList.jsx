@@ -7,6 +7,8 @@ import Filters from "../components/Filters";
 import { authContext } from "../context/authContext";
 
 
+
+
 const ProductsList = () => {
     const { getProducts, products, pages } = useContext(productContext)
     const { isAdmin } = useContext(authContext);
@@ -15,8 +17,14 @@ const ProductsList = () => {
     const [search, setSearch] = useState(
         searchParams.get("q") ? searchParams.get("q") : ""
     );
-    const [price, setPrice] = useState([1, 10000]);
 
+    const [searchParamsData, setSearchParamsData] = useSearchParams();
+    const [searchData, setSearchData] = useState(
+        searchParamsData.get("q") ? searchParamsData.get("q") : ""
+    );
+
+    const [price, setPrice] = useState([1, 10000]);
+    const [data, setData] = useState([1, 31])
     const [page, setPage] = useState(1);
 
     useEffect(() => {
@@ -28,12 +36,28 @@ const ProductsList = () => {
             price_gte: price[0],
             price_lte: price[1],
             _page: page,
-            _limit: 3,
+            _limit: 6,
         });
     }, [search, price, page]);
     useEffect(() => {
         getProducts();
     }, [searchParams]);
+
+
+
+    useEffect(() => {
+        setSearchParamsData({
+            q: search,
+            data_gte: data[0],
+            data_lte: data[1],
+            _page: page,
+            _limit: 6,
+        });
+    }, [searchData, data, page]);
+    useEffect(() => {
+        getProducts();
+    }, [searchParamsData]);
+
 
     //   console.log(price);
     //   console.log(pages);
@@ -67,7 +91,13 @@ const ProductsList = () => {
                     setSearch={setSearch}
                     price={price}
                     setPrice={setPrice}
+                    searchData={searchData}
+                    setSearchData={setSearchData}
+                    data={data}
+                    setData={setData}
                 />
+          
+
 
                 <Box display={"flex"} flexWrap={"wrap"} justifyContent={"center"} paddingTop={"30px"}>
                     {products.map(item => <ProductCard key={item.id} item={item} />)}
@@ -82,6 +112,7 @@ const ProductsList = () => {
                     />
                 </Box>
             </Container>
+
         </Box>
 
     );

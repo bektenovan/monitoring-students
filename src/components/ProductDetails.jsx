@@ -13,7 +13,7 @@ const ProductDetails = () => {
     }, [])
     return (
         <Box>
-            <img   width="100%" className='img' src={grad} alt='' />
+            <img width="100%" className='img' src={grad} alt='' />
             <Container>
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link underline="hover" color="inherit" href="/">
@@ -34,6 +34,7 @@ const ProductDetails = () => {
                     <Typography variant='h4'>{oneProduct.title}</Typography>
                     <Typography style={{ maxWidth: "400px" }} variant='string'>{oneProduct.description}</Typography>
                     <Typography variant='h5'>{oneProduct.price}</Typography>
+                    <Typography variant='h5'>{oneProduct.data}</Typography>
                 </Box> : <Loader />}
             </Container>
         </Box>

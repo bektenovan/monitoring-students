@@ -109,8 +109,8 @@ const CartContextProvider = ({ children }) => {
       addProductToCart,
       checkProductInCart,
       getCart,
-      changeProductCount,
-      deleteFromCart,
+             changeProductCount,
+        deleteFromCart,
     }}>
       {children}
     </cartContext.Provider>

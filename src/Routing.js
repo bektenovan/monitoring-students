@@ -11,6 +11,8 @@ import ProductsList from './components/ProductsList';
 import RegisterForm from './components/RegisterForm';
 import Video from './components/Video';
 import { authContext } from './context/authContext';
+import Calendar from './components/Calendar'
+import Favorite from './components/Favorite';
 
 const Routing = () => {
     const { isAdmin } = useContext(authContext);
@@ -31,7 +33,11 @@ const Routing = () => {
         element={isAdmin ? <EditProductForm /> : <Navigate replace to="*" />}
       />
        <Route path='/cart' element={<Cart />}/>  
+       <Route path='/favorite' element={<Favorite />}/>  
+
        <Route path="*" element={<NotFound />} />
+       <Route path="/data" element={<Calendar />} />
+
 
         </Routes>
  

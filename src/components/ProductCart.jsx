@@ -1,13 +1,15 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, Tab, Typography } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useNavigate } from 'react-router-dom';
 import { productContext } from '../context/productContext';
 import { cartContext } from '../context/cartContext';
 import { authContext } from '../context/authContext';
+import { favoriteContext } from '../context/favoriteContext';
 
 const ProductCard = ({ item }) => {
     console.log(item)
@@ -16,6 +18,13 @@ const ProductCard = ({ item }) => {
     const { isAdmin } = useContext(authContext);
     const { addProductToCart, checkProductInCart } = useContext(cartContext);
     const [checkProduct, setCheckProduct] = useState(checkProductInCart(item));
+
+
+    const { addProductToFavorite, checkProductInFavorite } = useContext(favoriteContext);
+    const [checkProductFavorite, setCheckProductFavorite] = useState(checkProductInFavorite(item));
+
+
+
     return (
         <Card sx={{ maxWidth: 300, margin: "10px" }}>
             <CardMedia
@@ -34,6 +43,9 @@ const ProductCard = ({ item }) => {
                 <Typography gutterBottom variant="h5" component="div">
                     {item.price}
                 </Typography>
+                <Typography gutterBottom variant="h5" component="div">
+                    {item.data}
+                </Typography>
             </CardContent>
             <CardActions>
                 {isAdmin ? (
@@ -46,6 +58,7 @@ const ProductCard = ({ item }) => {
                         </Button>
                     </>
                 ) : null}
+
                 <Button
                     onClick={() => {
                         addProductToCart(item);
@@ -54,6 +67,16 @@ const ProductCard = ({ item }) => {
                     size="small">
                     <AddShoppingCartIcon color={checkProduct ? "success" : "primary"} />
                 </Button>
+
+
+                <Button onClick={() => {
+                    addProductToFavorite(item);
+                    setCheckProductFavorite(checkProductInFavorite(item));
+                }} size="small">
+                    <Tab icon={<FavoriteIcon color={checkProductFavorite ? "success" : "primary"} />} aria-label="favorite" />
+                </Button>
+
+
                 <Button size="small" onClick={() => navigate(`/products/${item.id}`)}>
                     <MoreHorizIcon />
                 </Button>

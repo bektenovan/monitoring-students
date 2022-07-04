@@ -6,6 +6,9 @@ import { authContext } from '../context/authContext';
 import { cartContext } from '../context/cartContext';
 import { Badge, IconButton } from '@mui/material';
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { favoriteContext } from '../context/favoriteContext';
+
 
 
 
@@ -14,9 +17,15 @@ const Navbar = () => {
     // console.log(currentUser);
 
     const { count, getCart } = React.useContext(cartContext);
+    const { countFav, getFavorite } = useContext(favoriteContext)
     React.useEffect(() => {
         getCart();
     }, []);
+    React.useEffect(() => {
+        getFavorite();
+    }, []);
+
+
 
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
@@ -58,6 +67,17 @@ const Navbar = () => {
                     </IconButton></Link>
 
 
+                <Link to="/favorite">
+                    <IconButton
+                        size="large"
+                        aria-label="show 17 new notifications"
+                        color="inherit">
+                        <Badge badgeContent={countFav} color="error">
+                            <FavoriteIcon />
+
+                        </Badge>
+                    </IconButton>
+                </Link>
 
                 <Nav>
                     <NavDropdown title="User Name">

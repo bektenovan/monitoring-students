@@ -14,14 +14,18 @@ const AddProductForm = () => {
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
     const [image, setImage] = useState('')
+    const [data, setData] = useState('')
+
+
     function handleValues() {
         let newProduct = {
             title,
             description,
             price,
+            data,
             image
         }
-        if (!title.trim() || !description.trim() || !price || !image.trim()) {
+        if (!title.trim() || !description.trim() || !price || !image.trim() || !data) {
             alert("заполните поля!")
             return
         }
@@ -47,10 +51,11 @@ const AddProductForm = () => {
                     <Typography color="text.primary">Add</Typography>
                 </Breadcrumbs>
                 <Box display={"flex"} flexDirection={"column"} padding={"30px"} textAlign={"center"}>
-                    <Typography variant="h4" component="h2">Add new product</Typography>
+                    <Typography variant="h4" component="h2">Add new product</Typography>ƒ
                     <TextField value={title} onChange={(e) => setTitle(e.target.value)} label="Title" variant="standard" style={{ margin: "10px" }} />
                     <TextField value={description} onChange={(e) => setDescription(e.target.value)} label="Description" variant="standard" style={{ margin: "10px" }} />
                     <TextField type={price} value={price} label="Price" onChange={e => setPrice(+e.target.value)} variant="standard" style={{ margin: "10px" }} />
+                    <TextField type={data} value={data} label="Data" onChange={e => setData(+e.target.value)} variant="standard" style={{ margin: "10px" }} />
                     <TextField value={image} onChange={(e) => setImage(e.target.value)} label="Image" variant="standard" style={{ margin: "10px" }} />
                     <Button onClick={handleValues} style={{ margin: "10px" }} variant="contained" color="success">Add product</Button>
                 </Box>
