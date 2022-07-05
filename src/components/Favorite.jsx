@@ -28,9 +28,9 @@ export default function Favorite() {
     return (
         <Box>
             <img width="100%" className='img' src={grad} alt='' />
-            <Container>
+            <Container className="fav">
                 <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <Table sx={{ minWidth: 20 }} aria-label="simple table">
                         <TableHead>
                             <TableRow style={{ backgroundColor: "black" }}>
                                 <TableCell style={{ color: "white", fontSize: "20px" }}>Product</TableCell>

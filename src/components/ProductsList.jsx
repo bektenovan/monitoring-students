@@ -18,13 +18,8 @@ const ProductsList = () => {
         searchParams.get("q") ? searchParams.get("q") : ""
     );
 
-    const [searchParamsData, setSearchParamsData] = useSearchParams();
-    const [searchData, setSearchData] = useState(
-        searchParamsData.get("q") ? searchParamsData.get("q") : ""
-    );
 
     const [price, setPrice] = useState([1, 10000]);
-    const [data, setData] = useState([1, 31])
     const [page, setPage] = useState(1);
 
     useEffect(() => {
@@ -45,18 +40,7 @@ const ProductsList = () => {
 
 
 
-    useEffect(() => {
-        setSearchParamsData({
-            q: search,
-            data_gte: data[0],
-            data_lte: data[1],
-            _page: page,
-            _limit: 6,
-        });
-    }, [searchData, data, page]);
-    useEffect(() => {
-        getProducts();
-    }, [searchParamsData]);
+
 
 
     //   console.log(price);
@@ -91,12 +75,9 @@ const ProductsList = () => {
                     setSearch={setSearch}
                     price={price}
                     setPrice={setPrice}
-                    searchData={searchData}
-                    setSearchData={setSearchData}
-                    data={data}
-                    setData={setData}
+
                 />
-          
+
 
 
                 <Box display={"flex"} flexWrap={"wrap"} justifyContent={"center"} paddingTop={"30px"}>

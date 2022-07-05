@@ -12,11 +12,11 @@ const Video = () => {
                 <source src={natureVideo} type='video/mp4' />
             </video>
             <div className='content'>
-                <h1>Galaxy. Travel.</h1>
+                <h1>KETTIK. Travel.</h1>
                 <p>Открой для себя красоту Кыргызстана</p>
                 <div>
-                    <Link to='/training' className='btn'>Зарегистрироваться</Link>
-                    <Link to='/contact' className='btn btn-light'>Войти</Link>
+                    <Link to='/register' className='btn'>Зарегистрироваться</Link>
+                    <Link to='/login' className='btn btn-light'>Войти</Link>
                 </div>
             </div>
         </div>

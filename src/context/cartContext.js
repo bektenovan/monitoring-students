@@ -9,11 +9,11 @@ const INIT_STATE = {
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_CART":
-        return {
-            ...state,
-            cart: action.payload,
-            count: action.payload.products.length,
-          };
+      return {
+        ...state,
+        cart: action.payload,
+        count: action.payload.products.length,
+      };
     default:
       return state;
   }
@@ -72,14 +72,17 @@ const CartContextProvider = ({ children }) => {
       };
     }
     cart.totalPrice = cart.products.reduce((prev, curr) => {
-        return prev + curr.subPrice;
-      }, 0);
+      return prev + curr.subPrice;
+    }, 0);
+
+    // 0 + 1000 = 1000
+    // 1000 + 2000 = 3000
+
     dispatch({
       type: "GET_CART",
       payload: cart,
     });
   }
-  // console.log(state.count);
   function changeProductCount(count, id) {
     if (count <= 0) {
       count = 1;
@@ -103,15 +106,15 @@ const CartContextProvider = ({ children }) => {
   }
   return (
     <cartContext.Provider
-    value={{
-      cart: state.cart,
-      count: state.count,
-      addProductToCart,
-      checkProductInCart,
-      getCart,
-             changeProductCount,
+      value={{
+        cart: state.cart,
+        count: state.count,
+        addProductToCart,
+        checkProductInCart,
+        getCart,
+        changeProductCount,
         deleteFromCart,
-    }}>
+      }}>
       {children}
     </cartContext.Provider>
   );

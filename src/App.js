@@ -11,6 +11,7 @@ import CartContextProvider from "./context/cartContext";
 import FavoriteContextProvider from "./context/favoriteContext";
 
 const App  = () => {
+  
   return (
 <AuthContextProvider>
 <ProductContextProvider>

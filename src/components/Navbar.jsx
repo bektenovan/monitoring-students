@@ -44,7 +44,7 @@ const Navbar = () => {
     return (
         <div className={color ? 'header header-bg' : 'header'}>
 
-            <Link to='/'><h1>GLX TRVL</h1></Link>
+            <Link to='/'><h1>KETTIK </h1></Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li>
                     <Link to='/'>НА ГЛАВНУЮ</Link>
@@ -80,11 +80,11 @@ const Navbar = () => {
                 </Link>
 
                 <Nav>
-                    <NavDropdown title="User Name">
+                    <NavDropdown title="User Name" >
                         {currentUser ? (
                             <NavDropdown.Item>{currentUser.email}</NavDropdown.Item>) : null}
                         {currentUser ? (
-                            <NavDropdown.Item onClick={() => { logOut() }}>LogOut</NavDropdown.Item>) : (<NavDropdown.Item > <Link to='/login'>LogIn</Link></NavDropdown.Item>)}
+                            <NavDropdown.Item onClick={() => { logOut() }} style={{ color: "black" }}>LogOut</NavDropdown.Item>) : (<NavDropdown.Item > <Link to='/login' style={{ color: "black" }}>LogIn</Link></NavDropdown.Item>)}
                     </NavDropdown>
                 </Nav>
 

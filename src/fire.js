@@ -3,6 +3,7 @@ import fire from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import 'firebase/compat/app'
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyAi8BENSf8j92vrCNjxY_wWono8AfEhs4g",
   authDomain: "final-project-hiking.firebaseapp.com",
@@ -15,3 +16,5 @@ const firebaseConfig = {
 // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 export default fire.initializeApp(firebaseConfig);
+
+

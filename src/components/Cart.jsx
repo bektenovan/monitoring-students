@@ -17,11 +17,11 @@ import grad from '../files/wp.jpg'
 
 
 export default function Cart() {
-    const { getCart, cart, changeProductCount, deleteFromCart } = useContext(cartContext);
+    const { getCart, cart, changeProductCount, deleteFromCart } =
+        useContext(cartContext);
     useEffect(() => {
         getCart();
     }, []);
-
     const navigate = useNavigate();
     // console.log(cart);
     return (
@@ -32,11 +32,11 @@ export default function Cart() {
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>Product</TableCell>
-                                <TableCell align="right">Price</TableCell>
-                                <TableCell align="right">Count</TableCell>
-                                <TableCell align="right">SubPrice</TableCell>
-                                <TableCell align="right">Info</TableCell>
+                                <TableCell>Тур:</TableCell>
+                                <TableCell align="right">Цена билета:</TableCell>
+                                <TableCell align="right">Число билетов:</TableCell>
+                                <TableCell align="right">Oбщая цена:</TableCell>
+                                <TableCell align="right">Узнать больше:</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -48,8 +48,8 @@ export default function Cart() {
                                         <TableCell component="th" scope="row">
                                             {row.item.title}
                                         </TableCell>
-                                        <TableCell align="right">{row.item.price}</TableCell>
-                                        <TableCell align="right">
+                                        <TableCell align="right"><img style={{ marginRight: "8px" }} width={"30px"} src="https://cdn-icons-png.flaticon.com/128/3037/3037156.png" alt="" />{row.item.price}</TableCell>
+                                        <TableCell align="right" >
                                             <IconButton
                                                 onClick={() =>
                                                     changeProductCount(row.count - 1, row.item.id)
@@ -57,6 +57,7 @@ export default function Cart() {
                                                 aria-label="delete">
                                                 <RemoveIcon />
                                             </IconButton>
+                                            <img style={{ marginRight: "8px" }} width={"30px"} src="https://cdn-icons.flaticon.com/png/512/2918/premium/2918704.png?token=exp=1657016046~hmac=5a8e0f09fd58a196a793721f3c6be9a4" alt="" />
                                             {row.count}
                                             <IconButton
                                                 onClick={() =>
@@ -66,7 +67,9 @@ export default function Cart() {
                                                 <AddIcon />
                                             </IconButton>
                                         </TableCell>
-                                        <TableCell align="right">{row.subPrice}</TableCell>
+                                        <TableCell align="right">
+                                            <img style={{ marginRight: "8px" }} width={"30px"} src="https://cdn-icons-png.flaticon.com/512/3004/3004151.png" alt="" />
+                                            {row.subPrice}</TableCell>
                                         <TableCell align="right">
                                             <IconButton
                                                 onClick={() => deleteFromCart(row.item.id)}
@@ -76,7 +79,7 @@ export default function Cart() {
                                             <IconButton
                                                 onClick={() => navigate(`/products/${row.item.id}`)}
                                                 aria-label="delete">
-                                                <InfoIcon />
+                                                <InfoIcon  />
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>

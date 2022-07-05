@@ -38,13 +38,12 @@ const ProductCard = ({ item }) => {
                     {item.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {item.description.length > 20 ? `${item.description.slice(0, 20)}...` : item.description}
+                    {item.description.length > 20
+                        ? `${item.description.slice(0, 20)}...`
+                        : item.description}
                 </Typography>
                 <Typography gutterBottom variant="h5" component="div">
                     {item.price}
-                </Typography>
-                <Typography gutterBottom variant="h5" component="div">
-                    {item.data}
                 </Typography>
             </CardContent>
             <CardActions>
@@ -58,25 +57,20 @@ const ProductCard = ({ item }) => {
                         </Button>
                     </>
                 ) : null}
-
-                <Button
-                    onClick={() => {
-                        addProductToCart(item);
-                        setCheckProduct(checkProductInCart(item));
-                    }}
-                    size="small">
-                    <AddShoppingCartIcon color={checkProduct ? "success" : "primary"} />
-                </Button>
-
-
                 <Button onClick={() => {
                     addProductToFavorite(item);
                     setCheckProductFavorite(checkProductInFavorite(item));
                 }} size="small">
                     <Tab icon={<FavoriteIcon color={checkProductFavorite ? "success" : "primary"} />} aria-label="favorite" />
                 </Button>
-
-
+                <Button
+                    onClick={() => {
+                        addProductToCart(item);
+                        setCheckProduct(checkProductInCart(item));
+                    }}
+                    size="small">
+                    <AddShoppingCartIcon color={checkProduct ? "secondary" : "primary"} />
+                </Button>
                 <Button size="small" onClick={() => navigate(`/products/${item.id}`)}>
                     <MoreHorizIcon />
                 </Button>
@@ -85,4 +79,6 @@ const ProductCard = ({ item }) => {
     );
 };
 
-export default ProductCard; 
+export default ProductCard;
+
+

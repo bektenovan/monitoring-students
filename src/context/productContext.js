@@ -15,7 +15,7 @@ function reducer (state = INIT_STATE, action){
             return {
                 ...state,
                 products: action.payload.data,
-                pages: Math.ceil(action.payload.headers["x-total-count"] / 3),
+                pages: Math.ceil(action.payload.headers["x-total-count"] / 6),
               };
         case "GET_ONE_PRODUCT":
                 return {...state, oneProduct: action.payload};

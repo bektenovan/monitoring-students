@@ -46,8 +46,8 @@ const AuthContextProvider = ({ children }) => {
 
   // console.log(currentUser);
   return (
-    <authContext.Provider
-    value={{ currentUser, error, isAdmin, signUp, login, logOut }}>
+     <authContext.Provider
+      value={{ currentUser, error, isAdmin, signUp, login, logOut }}>
       {children}
     </authContext.Provider>
   );
