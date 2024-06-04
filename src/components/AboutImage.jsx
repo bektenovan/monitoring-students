@@ -21,51 +21,51 @@ export default function WovenImageList() {
 
 const itemData = [
     {
-        img: 'https://travelbar.kg/template/images/listings/735/1.jpg',
+        img: 'https://kstu.kg/fileadmin/main_menu/enrollee/fasad.jpg',
         title: 'Bed',
     },
     {
-        img: 'https://travels.mukashovphoto.com/wp-content/uploads/2019/07/DSC_9751.jpg',
+        img: 'https://kstu.kg/fileadmin/user_upload/12_08.jpg',
         title: 'Kitchen',
     },
     {
-        img: 'https://kabar.kg/site/assets/files/70855/33.jpg',
+        img: 'https://kstu.kg/fileadmin/user_upload/11_01.jpeg',
         title: 'Sink',
     },
     {
-        img: 'https://travelbar.kg/template/images/listings/735/3.jpg',
+        img: 'https://kstu.kg/fileadmin/user_upload/20_10.jpg',
         title: 'Books',
     },
     {
-        img: 'https://content.author-tour.com.ua/_Content/_materials/tury-v-karpaty-osnovnye-napravleniya/Images/149569868659268cfeefb20.jpg',
+        img: 'https://kstu.kg/fileadmin/user_upload/54.jpeg',
         title: 'Chairs',
     },
     {
-        img: 'https://www.advantour.com/img/kyrgyzstan/images/tours.jpg',
+        img: 'https://kstu.kg/fileadmin/user_upload/2_42.jpg',
         title: 'Candle',
     },
     {
-        img: 'https://tilinustravel.com/wp-content/uploads/2019/11/eyjwtfyvgdhb4738riuewdjk-1-1024x683.jpg',
+        img: 'https://kstu.kg/fileadmin/user_upload/10_28.jpg',
         title: 'Laptop',
     },
     {
-        img: 'https://www.kalipsoua.com/wp-content/uploads/IMG_4323.jpg',
+        img: 'https://kstu.kg/fileadmin/user_upload/2_43.jpg',
         title: 'Doors',
     },
     {
-        img: 'https://images.pexels.com/photos/2055556/pexels-photo-2055556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        img: 'https://kstu.kg/fileadmin/user_upload/433105531_901916261731471_5482816377390677619_n.jpg',
         title: 'Coffee',
     },
     {
-        img: 'https://images.pexels.com/photos/951076/pexels-photo-951076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        img: 'https://kstu.kg/fileadmin/user_upload/4_43.jpg',
         title: 'Storage',
     },
     {
-        img: 'https://beta.ooba.kg/static/2021/2/idty8xx7iuttyr986xd4q.jpg',
+        img: 'https://kstu.kg/fileadmin/user_upload/8_02.jpeg',
         title: 'Coffee table',
     },
     {
-        img: 'https://images.pexels.com/photos/906097/pexels-photo-906097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        img: 'https://kstu.kg/fileadmin/user_upload/42_02.jpg',
         title: 'Blinds',
     },
 ];

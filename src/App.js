@@ -8,23 +8,31 @@ import Footer from './components/Footer';
 import ProductContextProvider from './context/productContext';
 import AuthContextProvider from "./context/authContext";
 import CartContextProvider from "./context/cartContext";
-import FavoriteContextProvider from "./context/favoriteContext";
-
+import Survey from './components/Survey';
+import SurveyData from './components/SurveyData';
+import { SurveyProvider } from './context/surveyContext';
+import { SurveyDataProvider } from './context/surveyDataContext';
 const App  = () => {
   
   return (
 <AuthContextProvider>
 <ProductContextProvider>
     <BrowserRouter >
+    <SurveyProvider>
+      <SurveyDataProvider>
   <CartContextProvider>
-    <FavoriteContextProvider>
+    
+ 
     <Navbar/>
  {/* <Video /> */}
     <Routing/>
     {/* <HomePage/> */}
     <Footer />
-    </FavoriteContextProvider>
+
+   
   </CartContextProvider>
+  </SurveyDataProvider>
+    </SurveyProvider>
     </BrowserRouter>
   </ProductContextProvider>
 </AuthContextProvider>
@@ -33,5 +41,6 @@ const App  = () => {
   );
 }
 export default App;
+
 
 

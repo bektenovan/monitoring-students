@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Alert, Box, Button, TextField, Typography } from "@mui/material";
 import { authContext } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
-import grad from '../files/wp.jpg'
+//import grad from '../files/wp.jpg'
 
 const RegisterForm = () => {
     const { signUp, error } = useContext(authContext);

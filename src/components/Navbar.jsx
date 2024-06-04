@@ -6,8 +6,8 @@ import { authContext } from '../context/authContext';
 import { cartContext } from '../context/cartContext';
 import { Badge, IconButton } from '@mui/material';
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { favoriteContext } from '../context/favoriteContext';
+
+
 
 
 
@@ -17,12 +17,11 @@ const Navbar = () => {
     // console.log(currentUser);
 
     const { count, getCart } = React.useContext(cartContext);
-    const { countFav, getFavorite } = useContext(favoriteContext)
     React.useEffect(() => {
         getCart();
     }, []);
     React.useEffect(() => {
-        getFavorite();
+
     }, []);
 
 
@@ -32,7 +31,7 @@ const Navbar = () => {
 
     const [color, setColor] = useState(false)
     const changeColor = () => {
-        if (window.scrollY >= 100) {
+        if (window.scrollY >= -1) {
             setColor(true)
         } else {
             setColor(false)
@@ -42,42 +41,34 @@ const Navbar = () => {
     window.addEventListener('scroll', changeColor)
 
     return (
-        <div className={color ? 'header header-bg' : 'header'}>
+        <div className={color ? 'header header-bg' : 'header header-grey'}>
 
-            <Link to='/'><h1>KETTIK </h1></Link>
+            <Link to='/'><img src="https://kstu.kg/fileadmin/main_menu/enrollee/logo_kgtu_.png" alt="" width={90} />  </Link>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li>
-                    <Link to='/'>НА ГЛАВНУЮ</Link>
+                    <Link to='/'>На главную</Link>
                 </li>
                 <li>
-                    <Link to='/products'>ТУРЫ И ПОХОДЫ</Link>
+                    <Link to='/post-resume'>Заполнить резюме</Link>
                 </li>
                 <li>
-                    <Link to='/about-us'>О НАС</Link>
+                    <Link to="/resumes">Резюме студента</Link>
+                </li>
+                <li>
+                    <Link to='/survey-page'>Пройти опрос</Link>
+                </li>
+                <li>
+                    <Link to='/surveyData'>
+                        Данные опроса
+
+                    </Link>
                 </li>
 
-                <Link to='/cart'>
-                    <IconButton
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit">
-                        <Badge badgeContent={count} color="error">
-                            <AddShoppingCartIcon />
-                        </Badge>
-                    </IconButton></Link>
 
+                <li>   <Link to="/post-job">
+                    Вакансии
+                </Link></li>
 
-                <Link to="/favorite">
-                    <IconButton
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit">
-                        <Badge badgeContent={countFav} color="error">
-                            <FavoriteIcon />
-
-                        </Badge>
-                    </IconButton>
-                </Link>
 
                 <Nav>
                     <NavDropdown title="User Name" >

@@ -31,8 +31,9 @@ const AuthContextProvider = ({ children }) => {
   function authListener() {
     fire.auth().onAuthStateChanged(user => {
       if (user) {
+        //login adminkgtu@gmail.com password: kgtu01  !!!
          // login: admin@gmail.com password: hiking00
-         if (user.email === "admin@gmail.com") {
+         if (user.email === "adminkgtu@gmail.com") {
             setIsAdmin(true);
           }
         setCurrentUser(user);

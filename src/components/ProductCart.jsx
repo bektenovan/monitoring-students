@@ -4,12 +4,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useNavigate } from 'react-router-dom';
 import { productContext } from '../context/productContext';
 import { cartContext } from '../context/cartContext';
 import { authContext } from '../context/authContext';
-import { favoriteContext } from '../context/favoriteContext';
+
 
 const ProductCard = ({ item }) => {
     console.log(item)
@@ -20,8 +19,6 @@ const ProductCard = ({ item }) => {
     const [checkProduct, setCheckProduct] = useState(checkProductInCart(item));
 
 
-    const { addProductToFavorite, checkProductInFavorite } = useContext(favoriteContext);
-    const [checkProductFavorite, setCheckProductFavorite] = useState(checkProductInFavorite(item));
 
 
 
@@ -57,12 +54,7 @@ const ProductCard = ({ item }) => {
                         </Button>
                     </>
                 ) : null}
-                <Button onClick={() => {
-                    addProductToFavorite(item);
-                    setCheckProductFavorite(checkProductInFavorite(item));
-                }} size="small">
-                    <Tab icon={<FavoriteIcon color={checkProductFavorite ? "success" : "primary"} />} aria-label="favorite" />
-                </Button>
+               
                 <Button
                     onClick={() => {
                         addProductToCart(item);
